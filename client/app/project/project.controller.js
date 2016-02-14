@@ -12,6 +12,7 @@ angular.module('easySpinUpApp')
     
     $http.get("/api/netapp").success(function (data) {console.log(data)});
     
+    
     $scope.sampleData = [
  {
    "name": "hourly.2016-02-14_2005",
@@ -71,8 +72,6 @@ angular.module('easySpinUpApp')
 
 
 
-
-
         $scope.next = function () {
             $scope.data.selectedIndex = Math.min($scope.data.selectedIndex + 1, 2);
         };
@@ -122,6 +121,7 @@ function DialogController($scope, $mdDialog, $http, Auth, project_id) {
                         name: "Machine Learning Annotater",
                         git: "https://github.com/sincraianul/generator-angular-material-fullstack.git",
                         junction_path: "/VolumeA_copy",
+                        forked_from: Auth.getCurrentUser().name,
                         datasets: [],
                         user: {
                             name: user.name

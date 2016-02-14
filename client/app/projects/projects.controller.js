@@ -8,8 +8,6 @@ angular.module('easySpinUpApp')
       $scope.projects = projects;
       socket.syncUpdates('projects', $scope.projects);
         
-    $scope.junctionPath = "/Volume1/data";
-        
         $scope.goto = function (project_id) {
             $state.go('project', {id: project_id});
         }
