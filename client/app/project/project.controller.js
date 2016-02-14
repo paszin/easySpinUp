@@ -9,21 +9,61 @@ angular.module('easySpinUpApp')
 
         $scope.labels = ["Success", "Untested", "Failed"];
         $scope.data = [30, 12, 5];
-
-        $http({
-            method: "POST",
-            url: "https://54.153.6.84/occm/api/auth/login",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-            },
-            contentType:"application/json",
-            data:                 {
-                "email": "mail@michael-weisz.de",
-                "password": "3elysium19daWn"
-            }
-        }).success(function(resp) {console.log(resp)});
     
+    $http.get("/api/netapp").success(function (data) {console.log(data)});
+    
+    $scope.sampleData = [
+ {
+   "name": "hourly.2016-02-14_2005",
+   "accessTime": 1455480300000,
+   "label": null
+ },
+ {
+   "name": "hourly.2016-02-14_1905",
+   "accessTime": 1455476700000,
+   "label": null
+ },
+ {
+   "name": "hourly.2016-02-14_1805",
+   "accessTime": 1455473100000,
+   "label": null
+ },
+ {
+   "name": "clone_volume3.0",
+   "accessTime": 1455472479000,
+   "label": null
+ },
+ {
+   "name": "hourly.2016-02-14_1205",
+   "accessTime": 1455451500000,
+   "label": null
+ },
+ {
+   "name": "clone_volume1_copy5.0",
+   "accessTime": 1455451295000,
+   "label": null
+ },
+ {
+   "name": "clone_volume1_copy3.0",
+   "accessTime": 1455450975000,
+   "label": null
+ },
+ {
+   "name": "clone_volume1_copy.0",
+   "accessTime": 1455450681000,
+   "label": null
+ },
+ {
+   "name": "hourly.2016-02-14_1105",
+   "accessTime": 1455447900000,
+   "label": null
+ },
+ {
+   "name": "hourly.2016-02-14_1005",
+   "accessTime": 1455444300000,
+   "label": null
+ }
+];
     
     $scope.getStuff = function() {
         $http.get("https://54.153.6.84:443/occm/api/vsa/volumes/VsaWorkingEnvironment-Wo9as61C/svm_EasySpinUp/volume1/snapshots");
