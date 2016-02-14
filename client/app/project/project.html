@@ -1,26 +1,5 @@
 <div ng-include="'components/shell/shell.html'"></div>
 
-<script>$.ajax({
-   url: "https://54.153.6.84/occm/api/auth/login",
-   type: "POST",
-   headers:{
-       "Content-Type":"application/json",
-       "Accept":"application/json",
-   },
-   contentType:"application/json",
-   data:JSON.stringify({
-       "email": "mail@michael-weisz.de",
-       "password": "3elysium19daWn"
-   }),
-   success:function(data, textStatus, jqXHR){
-       console.log("HTTP Request Succeeded: " + jqXHR.status);
-       console.log(data);
-   },
-   error:function(jqXHR, textStatus, errorThrown){
-       console.log("HTTP Request Failed");
-   }
-});</script>
-
 <div class="container">
     <md-toolbar>
         <div class="md-toolbar-tools">
