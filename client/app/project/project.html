@@ -1,0 +1,42 @@
+<div ng-include="'components/shell/shell.html'"></div>
+
+<div class="container">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="left">
+          <
+        </md-button>
+            <span flex></span>
+        <h2>
+          <span>Dataset frrom 18.12.2015</span>
+        </h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="right">
+          >
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-tabs class="md-primary" md-selected="data.selectedIndex" md-stretch-tabs="always" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+      <md-tab id="tab1">
+        <md-tab-label>CI</md-tab-label>
+        <md-tab-body>
+        18.12.2015<br/>
+          
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="tab2">
+        <md-tab-label>Statistics</md-tab-label>
+        <md-tab-body>
+          18.12.2015 <br/>
+          
+        </md-tab-body>
+      </md-tab>
+    </md-tabs>
+    
+  <div class="md-padding" layout="row" layout-sm="column" layout-align="left center"
+       style="padding-top: 0;">
+    <md-button aria-label="share" style="margin: 5px;">
+      share
+    </md-button>
+  </div>
+</div>
