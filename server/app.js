@@ -6,6 +6,7 @@
 
 // Set default node environment to development
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 var express = require('express');
 var mongoose = require('mongoose');
@@ -26,9 +27,27 @@ if(config.seedDB) { require('./config/seed'); }
 var app = express();
 
 
-app.get('/api/test', function(req, res) {
-	request.get("http://www.google.com");
-  res.send('hello world');
+app.get('/api/netapp', function(req, res) {
+	request({
+    url: "https://54.153.6.84/occm/api/auth/login", //URL to hit
+    //qs: {from: 'blog example', time: +new Date()}, //Query string data
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+                "email": "mail@michael-weisz.de",
+                "password": "3elysium19daWn"
+            })
+}, function(error, response, body){
+    if(error) {
+        console.log(error);
+    } else {
+        console.log(response.statusCode, body, response.headers["JSESSIONID"]);
+         res.json({sessionid: response.headers});
+    }
+});
 });
 
 

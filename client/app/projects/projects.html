@@ -6,6 +6,7 @@
             <md-card-title-text layout="column">
                 <span class="md-headline">{{project.name}}</span>
                 <span class="md-subhead">last update: 3 hours ago</span>
+                <span ng-show="project.forked_from">{{project.forked_from}}</span>
                 <br>
                 <md-input-container>
                     <label>Junction Path</label>
@@ -17,7 +18,8 @@
                 Test Coverage: {{data($index)[0] - data($index)[2]}}%
             </md-card-title-text>
             <md-card-title-media>
-                <div class="md-media-sm card-media"></div>
+                <div class="md-media-sm card-media">
+                <img src="https://travis-ci.org/travis-ci/travis-web.svg?branch=master" alt="Build Status"></div>
             </md-card-title-media>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
