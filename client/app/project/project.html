@@ -1,42 +1,77 @@
 <div ng-include="'components/shell/shell.html'"></div>
 
+<script>$.ajax({
+   url: "https://54.153.6.84/occm/api/auth/login",
+   type: "POST",
+   headers:{
+       "Content-Type":"application/json",
+       "Accept":"application/json",
+   },
+   contentType:"application/json",
+   data:JSON.stringify({
+       "email": "mail@michael-weisz.de",
+       "password": "3elysium19daWn"
+   }),
+   success:function(data, textStatus, jqXHR){
+       console.log("HTTP Request Succeeded: " + jqXHR.status);
+       console.log(data);
+   },
+   error:function(jqXHR, textStatus, errorThrown){
+       console.log("HTTP Request Failed");
+   }
+});</script>
+
 <div class="container">
     <md-toolbar>
-      <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="left">
-          <
-        </md-button>
-            <span flex></span>
-        <h2>
-          <span>Dataset frrom 18.12.2015</span>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="left">
+                < </md-button>
+                    <span flex></span>
+                    <h2>
+          <span>Project: Resume Parser</span>
         </h2>
-        <span flex></span>
-        <md-button class="md-icon-button" aria-label="right">
-          >
-        </md-button>
-      </div>
+                    <span flex></span>
+                    <md-button class="md-icon-button" aria-label="right">
+                        >
+                    </md-button>
+        </div>
     </md-toolbar>
-    <md-tabs class="md-primary" md-selected="data.selectedIndex" md-stretch-tabs="always" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
-      <md-tab id="tab1">
-        <md-tab-label>CI</md-tab-label>
-        <md-tab-body>
-        18.12.2015<br/>
-          
-        </md-tab-body>
-      </md-tab>
-      <md-tab id="tab2">
-        <md-tab-label>Statistics</md-tab-label>
-        <md-tab-body>
-          18.12.2015 <br/>
-          
-        </md-tab-body>
-      </md-tab>
+    <md-tabs class="md-primary" md-selected="data.selectedIndex" md-stretch-tabs="always" md-dynamic-height md-align-tabs="top">
+        <md-tab id="tab1">
+            <md-tab-label>Test Runner</md-tab-label>
+            <md-tab-body>
+                <div layout="column" layout-align="center center"></div>
+                <div layout="row" layout-align="space-around center" layour-margin>
+                    <div>
+                        <p>Date: 12/18/15 10:00</p>
+                        <p>Execution Time: 2min 24s</p>
+                        <p>Commit: ada9d5cc</p>
+                    </div>
+                    <div style="height:100px; width:200px">
+                        <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels">
+                        </canvas>
+                        Test Coverage: 70%
+                    </div>
+                </div>
+                <br/>
+                <div layout="row" layout-align="center center"><img src="/assets/images/terminal1.PNG"></img></div>
+                
+
+            </md-tab-body>
+        </md-tab>
+        <md-tab id="tab2">
+            <md-tab-label>Dataset</md-tab-label>
+            <md-tab-body>
+                18.12.2015
+                <br/>
+
+            </md-tab-body>
+        </md-tab>
     </md-tabs>
-    
-  <div class="md-padding" layout="row" layout-sm="column" layout-align="left center"
-       style="padding-top: 0;">
-    <md-button aria-label="share" style="margin: 5px;">
-      share
-    </md-button>
-  </div>
+
+    <div class="md-padding" layout="row" layout-sm="column" layout-align="left center" style="padding-top: 0;">
+        <md-button aria-label="share" ng-click="share()" style="margin: 5px;">
+            share
+        </md-button>
+    </div>
 </div>

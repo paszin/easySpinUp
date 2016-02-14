@@ -35,20 +35,28 @@ Thing.find({}).remove(function() {
 User.find({}).remove(function() {
   User.create({
     provider: 'local',
+    role: 'admin',
     name: 'Michael',
     email: 'michael@test.com',
     password: 'test'
   }, {
     provider: 'local',
     name: 'Pascal',
+    role: 'admin',
     email: 'pascal@test.com',
     password: 'test'
-  },{
+  }, {
     provider: 'local',
+    name: 'Jonas',
     role: 'admin',
-    name: 'Admin',
-    email: 'admin@admin.com',
-    password: 'admin'
+    email: 'jonas@test.com',
+    password: 'test'
+  }, {
+    provider: 'local',
+    name: 'Stephan',
+    role: 'admin',
+    email: 'stephan@test.com',
+    password: 'test'
   }, function() {
       console.log('finished populating users');
     }
@@ -57,9 +65,8 @@ User.find({}).remove(function() {
 
 
 Project.find({}).remove(function() {
-  Project.create({name: "Resume Parser", git: "https://github.com/sincraianul/generator-angular-material-fullstack.git", datasets: [], user: {name: "Michael"}},
-    {name: "NLP File Analyzer", git: "https://github.com/sincraianul/generator-angular-material-fullstack.git", datasets: [], user: {name: "Michael"}},
-    {name: "Machine Learning Annotater", git: "https://github.com/sincraianul/generator-angular-material-fullstack.git", datasets: [], user: {name: "Michael"}},
-    {name: "Machine Learning Annotater", git: "https://github.com/sincraianul/generator-angular-material-fullstack.git", datasets: [], user: {name: "Pascal"}},
+  Project.create({name: "Resume Parser", git: "https://github.com/sincraianul/generator-angular-material-fullstack.git", junction_path: "/VolumeA", datasets: [], user: {name: "Michael"}},
+    {name: "NLP File Analyzer", git: "https://github.com/sincraianul/generator-angular-material-fullstack.git", junction_path: "/VolumeW/NLP", datasets: [], user: {name: "Michael"}},
+    {name: "Machine Learning Annotater", git: "https://github.com/sincraianul/generator-angular-material-fullstack.git", junction_path: "/VolumeW/ML", datasets: [], user: {name: "Michael"}},
     function() {console.log('finished populating projects');})
 });

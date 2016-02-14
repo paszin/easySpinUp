@@ -7,6 +7,8 @@ var ProjectSchema = new Schema({
   name: String,
   info: String,
   git: String,
+  junction_path: String,
+  forked_from: String,
   datasets: [{path: String, ci_log: String, timestamp: {type: Date, default: Date.now}}],
   user: {email: String, name: String}
 });

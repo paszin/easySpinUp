@@ -8,7 +8,8 @@ angular.module('easySpinUpApp', [
   'ngMessages',
   'btford.socket-io',
   'ui.router',
-  'ngMaterial'
+  'ngMaterial',
+  'chart.js'
 ])
   .config(function($mdIconProvider) {
     $mdIconProvider
