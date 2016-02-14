@@ -1,6 +1,7 @@
 <div ng-include="'components/shell/shell.html'"></div>
 
-<div class="container">
+
+<div class="container" style="background-color:#DDD" layout="column" flex>
     <md-toolbar>
         <div class="md-toolbar-tools">
             <md-button class="md-icon-button" aria-label="left">
@@ -15,14 +16,14 @@
                     </md-button>
         </div>
     </md-toolbar>
-    <md-tabs class="md-primary" md-selected="data.selectedIndex" md-stretch-tabs="always" md-dynamic-height md-align-tabs="top">
+    <md-tabs class="md-primary" md-selected="data.selectedIndex" md-stretch-tabs="always" md-dynamic-height md-align-tabs="top" flex>
         <md-tab id="tab1">
             <md-tab-label>Test Runner</md-tab-label>
             <md-tab-body layout="column">
                 <md-button aria-label="share" ng-click="share()" class="md-primary md-raised">
                     share
                 </md-button>
-                <div layout="row" layout-align="space-between center" layour-margin>
+                <div layout="row" layout-align="space-between start" layour-margin style="overflow:scroll; height:80%">
                     <div layout="column" layout-align="start center">
                         <div>
                         <p><strong>Date:</strong> 12/18/15 10:00</p>
@@ -35,7 +36,7 @@
                     </div>
                     </div>
 
-                    <img src="/assets/images/terminal1.PNG" style="margin:50px"></img>
+                    <img src="/assets/images/terminal1.PNG" style="margin-right: 100px"></img>
                 </div>
 
             </md-tab-body>
