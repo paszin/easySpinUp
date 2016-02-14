@@ -39,23 +39,25 @@
     <md-tabs class="md-primary" md-selected="data.selectedIndex" md-stretch-tabs="always" md-dynamic-height md-align-tabs="top">
         <md-tab id="tab1">
             <md-tab-label>Test Runner</md-tab-label>
-            <md-tab-body>
-                <div layout="column" layout-align="center center"></div>
-                <div layout="row" layout-align="space-around center" layour-margin>
-                    <div>
-                        <p>Date: 12/18/15 10:00</p>
-                        <p>Execution Time: 2min 24s</p>
-                        <p>Commit: ada9d5cc</p>
+            <md-tab-body layout="column">
+                <md-button aria-label="share" ng-click="share()" class="md-primary md-raised">
+                    share
+                </md-button>
+                <div layout="row" layout-align="space-between center" layour-margin>
+                    <div layout="column" layout-align="start center">
+                        <div>
+                        <p><strong>Date:</strong> 12/18/15 10:00</p>
+                        <p><strong>Execution Time:</strong> 2min 24s</p>
+                        <p><strong>Commit:</strong> ada9d5cc</p>
+                        <p><strong>Test Coverage:</strong> 70%</p>
+                        </div>
+                     <div style="width:600px">
+                    <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels"></canvas>
                     </div>
-                    <div style="height:100px; width:200px">
-                        <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels">
-                        </canvas>
-                        Test Coverage: 70%
                     </div>
+
+                    <img src="/assets/images/terminal1.PNG" style="margin:50px"></img>
                 </div>
-                <br/>
-                <div layout="row" layout-align="center center"><img src="/assets/images/terminal1.PNG"></img></div>
-                
 
             </md-tab-body>
         </md-tab>

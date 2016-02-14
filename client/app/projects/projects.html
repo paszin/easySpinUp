@@ -1,9 +1,9 @@
 <div ng-include="'components/shell/shell.html'"></div>
 
-<div class="container">
-    <md-card ng-repeat="project in projects">
+<div class="container" layout="row" layout-wrap style="background-color:#DDD" flex>
+    <md-card ng-repeat="project in projects" style="min-width:400px">
         <md-card-title>
-            <md-card-title-text>
+            <md-card-title-text layout="column">
                 <span class="md-headline">{{project.name}}</span>
                 <span class="md-subhead">last update: 3 hours ago</span>
                 <span ng-show="project.forked_from">{{project.forked_from}}</span>
@@ -12,6 +12,10 @@
                     <label>Junction Path</label>
                     <input ng-model="project.junction_path" ng-disabled=true ng-maxlength="25">
                 </md-input-container>
+
+                <canvas id="doughnut" class="chart chart-doughnut" chart-data="data($index)" chart-labels="labels">
+                </canvas>
+                Test Coverage: {{data($index)[0] - data($index)[2]}}%
             </md-card-title-text>
             <md-card-title-media>
                 <div class="md-media-sm card-media">
@@ -19,7 +23,7 @@
             </md-card-title-media>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-            <md-button ng-click="goto(project._id)">show project page</md-button>
+            <md-button class="md-raised md-primary" ng-click="goto(project._id)">show project page</md-button>
         </md-card-actions>
     </md-card>
 </div>
